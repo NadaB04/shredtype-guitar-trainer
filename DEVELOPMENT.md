@@ -1,6 +1,4 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+# ShredType — Developer Notes
 
 ## What this is
 
@@ -131,7 +129,7 @@ header + comments explain the data shape and every transform; the important knob
 Known limitation: a vocal-only line scrolls through **empty gaps** during solos/breakdowns.
 Acceptable but sparse — `animal-i-have-become` has a ~20 s gap.
 
-Do NOT bother with **MuseScore screenshots**: its embedded viewer freezes the claude-in-chrome
+Do NOT bother with **MuseScore screenshots**: its embedded viewer freezes the browser-automation
 screenshot/zoom tool after the first capture, won't scroll via events, and gates its page images.
 Tried thoroughly, not viable.
 

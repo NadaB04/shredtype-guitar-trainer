@@ -61,7 +61,7 @@ let SONGS = [];
 // EADGBE, indexed [string1..string6] (string1 = high e). Lets songs in Drop D, Drop C#,
 // etc. use their real fret numbers while still resolving to the correct absolute pitch —
 // without this, every song's frequency math silently assumed standard tuning regardless
-// of what its `tuning` display field said (see CLAUDE.md).
+// of what its `tuning` display field said (see DEVELOPMENT.md).
 function noteFrequency(string, fret, tuningOffsets) {
   const offset = (tuningOffsets && tuningOffsets[string - 1]) || 0;
   return STRING_OPEN_FREQ[string] * Math.pow(2, (fret + offset) / 12);

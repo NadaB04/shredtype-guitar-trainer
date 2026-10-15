@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /*
  * songsterr-import.js — pull a song's sung melody from Songsterr's "Lead Vocals"
- * track and turn it into a ShredType song JSON. See CLAUDE.md ("Songsterr
+ * track and turn it into a ShredType song JSON. See DEVELOPMENT.md ("Songsterr
  * vocal-track workflow") for the why; this is the how.
  *
  *   node tools/songsterr-import.js "linkin park numb"
@@ -55,7 +55,7 @@ async function resolveVocalTrack(query) {
   if (idx < 0) idx = tracks.findIndex((t) => /lead vocal/i.test(t.name || ''));
   if (idx < 0) {
     console.log('tracks:', tracks.map((t, i) => `${i}:${t.name}`).join('  '));
-    throw new Error('no vocal track on this revision — try the MIDI/tab fallback (see CLAUDE.md)');
+    throw new Error('no vocal track on this revision — try the MIDI/tab fallback (see DEVELOPMENT.md)');
   }
   // The CloudFront part index matches the track's position in meta.tracks[].
   const part = await getJSON(`${CDN}/${songId}/${rev}/${image}/${idx}.json`);
@@ -190,7 +190,7 @@ function addToManifest(id, file) {
     const seg = a.flat.filter((n) => n.beat >= m[0] * 4).slice(0, 12).map((n) => noteName(n.midi));
     console.log(`   ${m[1]}: ${seg.join(' ')}`);
   }
-  if (a.verdict !== 'GOOD') console.log('\n^ SUSPECT: check chords/badBeats/range/structure before trusting this. See CLAUDE.md.');
+  if (a.verdict !== 'GOOD') console.log('\n^ SUSPECT: check chords/badBeats/range/structure before trusting this. See DEVELOPMENT.md.');
 
   const w = rest.indexOf('--write');
   if (w >= 0) {
